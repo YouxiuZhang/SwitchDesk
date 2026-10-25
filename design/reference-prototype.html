@@ -1,0 +1,371 @@
+<html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>双栖 SwitchDesk · UI 设计预览</title>
+<style>
+:root{--ink:#242933;--muted:#7b818d;--line:#e7e9ee;--paper:#fff;--violet:#6554d9;--soft:#f0edff;--green:#278270;--bg:#f5f6f9;--shadow:0 28px 90px #252b4520,0 2px 8px #252b4505}*{box-sizing:border-box}body{margin:0;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:#eff0f5;background-image:radial-gradient(#c9cbd45c .7px,transparent .7px);background-size:16px 16px;font-size:13px;line-height:1.55}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #a397ff;outline-offset:3px}button:disabled{cursor:wait;opacity:.65}button{color:inherit}svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}h1,h2,h3,p{margin:0}button{border:0}.preview{max-width:1180px;margin:27px auto 40px;padding:0 22px}.preview-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px;color:#6e7383;font-size:12px;gap:16px}.preview-name{letter-spacing:2px;font-size:11px;font-weight:700;color:#52586b}.demo-label{background:#fff9df;border:1px solid #e9dfb7;border-radius:20px;padding:5px 12px;font-size:11px;color:#8a7131}.window{background:#fbfcfd;border:1px solid #ffffffc9;border-radius:17px;box-shadow:var(--shadow);overflow:hidden}.titlebar{height:46px;display:flex;align-items:center;padding:0 19px;border-bottom:1px solid var(--line);background:#fafbfc;position:relative}.traffic{display:flex;gap:8px}.traffic i{width:10px;height:10px;border-radius:50%;background:#ff6b63;border:1px solid #0000000a}.traffic i:nth-child(2){background:#ffc04c}.traffic i:nth-child(3){background:#55c86c}.titlebar-title{position:absolute;left:50%;transform:translateX(-50%);font-size:12px;color:#8c919c}.titlebar-note{margin-left:auto;font-size:10px;color:#9da2ae;letter-spacing:1px}.shell{display:grid;grid-template-columns:188px 1fr;min-height:738px}.sidebar{padding:25px 15px 18px;background:#f6f7f9;border-right:1px solid var(--line);display:flex;flex-direction:column}.brand{display:flex;align-items:center;gap:11px;padding:0 10px 30px}.mark{display:grid;place-items:center;width:36px;height:36px;background:var(--violet);color:white;border-radius:11px}.mark svg{width:24px;height:24px}.brand-title{font-size:18px;font-weight:700;letter-spacing:2px}.brand-sub{font-size:9px;letter-spacing:1.7px;color:#9397a3;line-height:1.2}.nav-caption{color:#a4a8b2;font-size:10px;margin:0 12px 11px;letter-spacing:1.4px}.nav{display:flex;flex-direction:column;gap:6px}.nav button{display:flex;align-items:center;gap:11px;background:transparent;padding:11px 13px;border-radius:9px;text-align:left;color:#858a97}.nav button svg{width:18px;height:18px}.nav button.active{color:var(--violet);background:#eae7fa;font-weight:600}.nav button:hover:not(.active){background:#eeeef3}.nav-count{margin-left:auto;font-size:10px;background:#fff;border-radius:5px;padding:1px 5px;color:#958aae}.sidebar-bottom{margin-top:auto;padding:18px 10px 0}.local{display:flex;align-items:center;gap:8px;font-size:11px;color:#6f7683}.dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#44a38c;flex-shrink:0}.sidebar-bottom p{font-size:10px;color:#a6aab4;line-height:1.8;margin-top:6px}.main{padding:27px 31px 22px;min-width:0}.heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;gap:15px}.eyebrow{font-size:10px;letter-spacing:1.5px;color:#959aa5;margin-bottom:4px}.heading h1{font-size:23px;font-weight:640;letter-spacing:-.6px}.online{display:flex;align-items:center;gap:7px;color:#6c7580;font-size:11px;border:1px solid var(--line);padding:6px 9px;border-radius:7px;background:#fff;white-space:nowrap}.hero{background:#f1effb;border:1px solid #e4dff5;border-radius:15px;position:relative;display:grid;grid-template-columns:1.05fr 1fr;min-height:244px;overflow:hidden}.hero-copy{padding:28px 27px;z-index:1}.hero-label{font-size:11px;color:#7c709d;display:flex;gap:7px;align-items:center}.hero-label .dot{background:#7a69d1}.hero h2{font-size:32px;letter-spacing:-1px;margin:4px 0 6px;font-weight:650}.hero-desc{font-size:11px;color:#8b839e;margin-bottom:22px}.primary{background:var(--violet);color:#fff;border-radius:8px;padding:10px 15px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 4px 8px #6554d919;font-size:12px}.primary:hover{background:#5847c8}.primary svg{width:16px;height:16px}.shortcut{display:flex;align-items:center;gap:4px;margin-top:12px;color:#a29aac;font-size:10px}.shortcut kbd{font-family:inherit;background:#ffffff94;border:1px solid #dfdae9;border-radius:4px;padding:1px 5px;font-size:10px;color:#91869e}.hero-art{display:flex;align-items:center;justify-content:center;position:relative;padding:30px 22px 25px 0}.halo{position:absolute;width:230px;height:230px;border:1px solid #e3def3;border-radius:50%}.halo:before{content:"";position:absolute;inset:18px;border:1px solid #e3def3;border-radius:50%}.monitor{width:236px;position:relative;z-index:1;margin-top:-8px}.monitor-frame{padding:7px 7px 12px;background:#2e3040;border-radius:10px;box-shadow:0 13px 25px #4e417a25;position:relative}.monitor-frame:after{content:"";width:14px;height:2px;background:#5d5e6d;position:absolute;bottom:5px;left:calc(50% - 7px)}.monitor-screen{height:127px;border-radius:4px;overflow:hidden;background:#bfc4ef;position:relative;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#fff}.monitor-screen:before,.monitor-screen:after{content:"";position:absolute;width:220px;height:220px;border:38px solid #98a0e1;border-radius:50%;transform:rotate(30deg);top:-137px;right:-77px;opacity:.7}.monitor-screen:after{width:190px;height:190px;border-color:#d9ddfa;top:35px;left:-66px;opacity:.45}.monitor-screen.mac{background:#c5d8d6}.monitor-screen.mac:before{border-color:#9abfbc}.monitor-screen.mac:after{border-color:#e0eeeb}.screen-name{font-size:14px;font-weight:550;position:relative;z-index:1;text-shadow:0 1px 7px #56577512}.screen-sub{font-size:8px;opacity:.75;position:relative;z-index:1;letter-spacing:2px}.screen-dock{position:absolute;bottom:8px;display:flex;gap:4px;z-index:1;background:#ffffff4d;border:1px solid #ffffff3d;border-radius:5px;padding:4px 5px}.screen-dock i{width:8px;height:8px;border-radius:2px;background:#ffffffbd}.monitor-neck{height:13px;background:#b7b4c9;width:31px;margin:auto}.monitor-base{height:5px;background:#bbb8cc;border-radius:5px;width:88px;margin:auto;box-shadow:0 5px 6px #69647913}.monitor-caption{font-size:9px;color:#9a92ab;text-align:center;position:absolute;bottom:15px;left:0;right:16px;letter-spacing:.2px}.section-label{display:flex;align-items:center;justify-content:space-between;margin:22px 0 10px;font-size:12px;font-weight:600}.section-label small{font-size:10px;font-weight:400;color:#9b9fab}.device-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.device{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:11px;padding:14px 15px;position:relative;min-height:76px}.device.active-target{border-color:#c8beef;box-shadow:0 0 0 1px #ece7fc}.device-icon{width:41px;height:41px;background:#f5f6f8;border-radius:9px;display:grid;place-items:center;color:#7e8594}.device-icon svg{width:26px;height:26px}.device strong{font-size:13px;font-weight:600}.device small{display:flex;align-items:center;gap:5px;font-size:10px;color:#999eaa;margin-top:3px}.device small svg{width:11px;height:11px}.device-badge{margin-left:auto;background:#f0ecfb;border-radius:5px;padding:3px 7px;color:#8272ba;font-size:9px}.device-badge.idle{background:#f2f6f5;color:#6d9187}.source-panel{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:11px;padding:16px}.panel-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}.panel-title{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600}.panel-title svg{width:16px;height:16px;color:#9297a4}.small-note{font-size:10px;color:#a1a6af}.sources{display:grid;grid-template-columns:1fr 1fr;gap:10px}.source{border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fcfcfd;display:flex;align-items:center;text-align:left;gap:9px}.source[aria-pressed=true]{background:#f5f2ff;border-color:#cec5f1}.radio{width:14px;height:14px;border:1px solid #c9cbd3;border-radius:50%;display:grid;place-items:center}.source[aria-pressed=true] .radio{border-color:var(--violet)}.source[aria-pressed=true] .radio:after{content:"";width:6px;height:6px;border-radius:50%;background:var(--violet)}.source strong{display:block;font-size:11px;font-weight:550}.source small{display:block;font-size:10px;color:#9895a6;margin-top:2px}.source-hint{font-size:10px;color:#a5a9b3;margin-top:10px}.clipboard-panel{background:#fff;border:1px solid var(--line);border-radius:11px;margin-top:16px;padding:15px 16px}.clipboard-top{display:flex;justify-content:space-between;align-items:center}.clipboard-top p{font-size:10px;color:#a0a5af;margin-top:3px}.toggle{width:30px;height:18px;background:var(--violet);border-radius:20px;position:relative;flex-shrink:0}.toggle:after{content:"";width:14px;height:14px;background:white;border-radius:50%;position:absolute;top:2px;right:2px;box-shadow:0 1px 3px #0002}.toggle[aria-checked=false]{background:#d9dce3}.toggle[aria-checked=false]:after{right:14px}.transfer{border-top:1px solid #eff0f4;margin-top:13px;padding-top:13px;display:flex;align-items:center;gap:12px}.folder-icon{width:34px;height:34px;border-radius:8px;background:#fff7e7;display:grid;place-items:center;color:#c6a451}.folder-icon svg{width:19px;height:19px}.transfer-content{flex:1;min-width:0}.transfer-row{display:flex;justify-content:space-between;align-items:center;font-size:11px}.transfer-meta{font-size:9px;color:#a0a5af;margin-top:2px}.progress{height:3px;background:#ece9f5;border-radius:5px;margin-top:7px;overflow:hidden}.progress span{display:block;height:100%;width:62%;background:#9c8de2;border-radius:5px}.icon-button{background:transparent;color:#a6aab4;padding:5px;display:grid;place-items:center;border-radius:5px}.icon-button:hover{background:#f0eef7}.icon-button svg{width:15px;height:15px}.footnote{font-size:10px;color:#b0b4bd;margin-top:15px;display:flex;align-items:center;justify-content:space-between;gap:10px}.footnote a{color:#9386bd;text-decoration:none}.view[hidden]{display:none}.card{background:white;border:1px solid var(--line);border-radius:12px;padding:21px;margin-bottom:16px}.card h2{font-size:14px;font-weight:600}.card .description{font-size:11px;color:#9298a4;margin-top:5px}.settings-row{display:flex;align-items:center;justify-content:space-between;padding:17px 0;gap:14px;border-bottom:1px solid #f0f1f4}.settings-row:last-child{border:0;padding-bottom:0}.settings-row strong{font-size:12px;font-weight:500;display:block}.settings-row small{display:block;color:#9ca1ad;font-size:10px;margin-top:2px}.secondary{padding:8px 12px;border:1px solid var(--line);background:#fff;border-radius:7px;font-size:11px;color:#777e8d}.secondary:hover{background:#f8f7fc}.key-display{display:flex;gap:4px}.key-display kbd{padding:4px 8px;border:1px solid var(--line);background:#fbfbfd;border-radius:5px;font-size:11px;font-family:inherit;color:#7a7e8d}.format-list{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}.format-list span{background:#f4f2fb;color:#8b7db6;border-radius:5px;padding:4px 9px;font-size:10px}.empty-clipboard{padding:22px;background:#f7f8fb;border-radius:8px;margin-top:17px;color:#777f8e;font-size:12px}.empty-clipboard code{display:block;white-space:pre-wrap;margin-top:7px;color:#575f70;font-size:11px}.clipboard-caption{font-size:9px;color:#a5a9b5;margin-top:10px}.transfer-large{margin-top:16px;border:1px solid var(--line);padding:16px;border-radius:9px}.transfer-large .transfer{margin:0;padding:0;border:0}.info{padding:13px 15px;background:#f4f2fa;border-radius:8px;font-size:11px;color:#8e84a5;margin-top:16px;line-height:1.8}.pill{font-size:10px;background:#fff6e4;border:1px solid #f2e5c9;border-radius:5px;color:#b09558;padding:3px 6px;white-space:nowrap}.preview-bottom{display:flex;justify-content:space-between;margin-top:17px;gap:15px;align-items:center;color:#989eac;font-size:10px}.preview-bottom strong{font-weight:400;color:#6e7586}.toast{position:fixed;bottom:28px;left:50%;transform:translate(-50%,20px);background:#323544;color:white;padding:11px 18px;border-radius:9px;font-size:12px;box-shadow:0 10px 30px #0002;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:10;max-width:90vw}.toast.show{opacity:1;transform:translate(-50%,0)}dialog{border:1px solid #e4e1ef;border-radius:15px;box-shadow:var(--shadow);padding:26px;width:390px;color:var(--ink)}dialog::backdrop{background:#22253d40;backdrop-filter:blur(3px)}dialog h2{font-size:18px}dialog p{font-size:12px;color:#9599a7;margin:8px 0 19px}.dialog-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:23px}input{border:1px solid var(--line);border-radius:8px;padding:12px;width:100%;background:#fbfbfd;color:#6554d9;text-align:center;font-weight:550}button:active{transform:translateY(1px)}.reduced-motion *{transition:none!important}@media(prefers-reduced-motion:reduce){*{transition:none!important}}@media(min-width:1400px){.preview{margin-top:46px}}@media(max-width:900px){.preview{padding:0 12px;margin-top:12px}.shell{grid-template-columns:150px 1fr}.main{padding:22px}.sidebar{padding-left:8px;padding-right:8px}.brand{padding-left:5px}.brand-title{font-size:16px}.hero-copy{padding:24px 20px}.monitor{width:190px}.monitor-screen{height:105px}.hero-art{padding-right:14px}.hero{min-height:235px}.small-note{display:none}.monitor-caption{font-size:8px}.hero-desc{max-width:180px}}@media(max-width:680px){.shell{display:block}.sidebar{padding:12px;border-right:0;border-bottom:1px solid var(--line)}.brand,.nav-caption,.sidebar-bottom{display:none}.nav{flex-direction:row;gap:5px}.nav button{flex:1;justify-content:center;padding:8px 4px}.nav-count{display:none}.main{padding:20px 14px}.hero{grid-template-columns:1fr .8fr}.hero-copy{padding:22px 16px}.hero h2{font-size:27px}.monitor{width:144px}.monitor-screen{height:82px}.monitor-caption{bottom:22px}.hero-art{padding:20px 12px 20px 0}.halo{width:160px;height:160px}.heading h1{font-size:20px}.device{padding:11px 10px;gap:7px}.device-icon{width:29px;height:34px}.device-badge{display:none}.source{padding:10px 8px;gap:6px}.source small{font-size:9px}.footnote{font-size:9px}.preview-top{align-items:flex-start}.demo-label{max-width:210px}.preview-bottom{display:block}.preview-bottom span{display:block;margin-top:5px}.titlebar-note{display:none}}
+
+/* V0.2: remote desktop preview, with explicitly simulated content. */
+.hero-art{padding:23px 20px 30px 0;display:flex;flex-direction:column;gap:7px;justify-content:center}
+.preview-device-line{width:238px;display:flex;align-items:center;justify-content:space-between;z-index:2;font-size:9px;color:#8b829d}
+.preview-device-line strong{color:#6a5e86;font-weight:550;font-size:10px}
+.preview-state-label{display:flex;gap:4px;align-items:center;font-size:8px;color:#9c91ad}
+.preview-state-label .dot{width:4px;height:4px}
+.monitor{width:238px;margin-top:0}.monitor-frame{padding:6px 6px 10px;border-radius:9px}
+.monitor-screen{height:auto;aspect-ratio:16/9;display:block;background:#dbe1e3;isolation:isolate}
+.monitor-screen:before,.monitor-screen:after{display:none}
+.desktop-svg{display:block;width:100%;height:100%;stroke:none;fill:none;stroke-width:0}
+.desktop-svg text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;stroke:none}
+.desktop-wallpaper{fill:#c7c9ea}.desktop-wave{fill:#a6a9d9}.desktop-wave2{fill:#dddff5}
+.mac .desktop-wallpaper{fill:#b7d5cf}.mac .desktop-wave{fill:#7fb1a6}.mac .desktop-wave2{fill:#d5e8e3}
+.preview-watermark{position:absolute;left:6px;bottom:6px;padding:2px 4px;background:#25313cc7;color:#fff;font-size:7px;border-radius:3px;line-height:1.2;letter-spacing:.2px;z-index:3}
+.preview-actions{display:flex;align-items:center;justify-content:space-between;width:238px;z-index:2;color:#9387a5;font-size:8px}
+.preview-actions .buttons{display:flex;gap:4px}
+.preview-action{padding:3px 6px;background:#ffffff9c;border:1px solid #ddd7ed;border-radius:4px;color:#827095;font-size:8px}
+.preview-action:hover{background:#fff}
+.preview-unavailable{position:absolute;inset:0;background:#e9e7ef;z-index:4;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;text-align:center;padding:10px}
+.preview-unavailable[hidden]{display:none}
+.preview-unavailable strong{font-size:10px;font-weight:500;color:#746b85}
+.preview-unavailable small{font-size:7px;color:#a299b1;line-height:1.7}
+.preview-cursor{transform-origin:720px 350px;animation:preview-cursor 7s infinite}
+.preview-paused .preview-cursor{animation-play-state:paused}
+@keyframes preview-cursor{0%,100%{transform:translate(0,0)}35%,55%{transform:translate(-122px,-88px)}80%{transform:translate(-42px,-38px)}}
+.monitor-caption{bottom:9px;font-size:8px}
+.preview-dialog{width:780px;max-width:92vw;padding:21px}
+.preview-dialog-top{display:flex;justify-content:space-between;align-items:flex-start}
+.preview-dialog-top h2{font-size:17px}
+.preview-dialog-top p{font-size:11px;margin:5px 0 17px}
+.preview-enlarged{aspect-ratio:16/9;background:#dbe1e3;border-radius:10px;overflow:hidden;position:relative}
+.preview-enlarged .preview-watermark{font-size:11px;left:12px;bottom:12px}
+.preview-enlarged .preview-unavailable strong{font-size:17px}
+.preview-enlarged .preview-unavailable small{font-size:12px}
+.preview-dialog-foot{font-size:10px;color:#aaa3b5;margin-top:12px;display:flex;justify-content:space-between}
+.preview-dialog .icon-button{padding:4px}
+@media(max-width:900px){.hero-art{padding-right:14px}.monitor,.preview-device-line,.preview-actions{width:190px}.monitor-screen{height:auto}.preview-device-line{font-size:8px}.preview-actions{font-size:7px}.preview-action{padding:2px 4px;font-size:7px}.hero{min-height:247px}}
+@media(max-width:680px){.monitor,.preview-device-line,.preview-actions{width:150px}.hero-art{padding-right:9px}.preview-device-line strong{font-size:9px}.preview-device-line{font-size:7px}.preview-state-label{font-size:6px}.preview-actions>span{display:none}.preview-actions{justify-content:flex-end}.hero{min-height:250px}.preview-watermark{font-size:6px}.preview-unavailable strong{font-size:8px}.preview-unavailable small{font-size:6px}.monitor-caption{right:8px}}
+
+/* V0.4: background checks, with details shown only on demand. */
+.connection-alert{display:flex;align-items:center;gap:12px;border:1px solid #eadbc6;background:#fff8ed;border-radius:9px;padding:13px 15px;margin-top:14px}.connection-alert[hidden]{display:none}.connection-alert strong{font-size:11px;color:#9b7846}.connection-alert p{font-size:10px;color:#a89982;margin-top:3px}.connection-alert .secondary{margin-left:auto;white-space:nowrap}.connection-details{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}.connection-details summary{cursor:pointer;font-size:11px;color:#8a8299;padding:3px 0}.connection-details summary:focus-visible,.demo-controls summary:focus-visible{outline:3px solid #a397ff;outline-offset:3px}.connection-details>p{font-size:11px;line-height:1.8;color:#9295a0;margin:12px 0}.connection-status{font-size:10px;color:#6f9684;white-space:nowrap}.connection-status.warn{color:#b18a4b}.detail-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;font-size:10px;color:#a5a2ae}.recovery{border:1px solid #eadbc6;border-radius:9px;padding:12px 14px;margin-top:12px;background:#fffaf3;font-size:11px;color:#aa8554}.recovery[hidden]{display:none}.recovery p{font-size:10px;color:#a79b8d;margin-top:4px}.recovery button{margin-top:9px}.demo-controls{font-size:10px;color:#9a9cac;margin-top:12px}.demo-controls summary{cursor:pointer;display:list-item;width:max-content}.demo-controls p{margin-top:9px;font-size:9px;color:#aaa7b2}.scenario-toolbar{display:flex;gap:7px;margin-top:10px}.scenario-toolbar button{font-size:10px;padding:6px 10px;border:1px solid #dddce6;border-radius:6px;background:#ffffff9c;color:#97909f}.scenario-toolbar button[aria-pressed=true]{background:#f5f1ff;border-color:#c8bdeb;color:#7761b2}
+</style>
+</head>
+<body>
+<svg aria-hidden="true" style="display:none"><defs>
+<symbol id="i-swap" viewBox="0 0 24 24"><path d="M4 7h15m-4-4 4 4-4 4M20 17H5m4-4-4 4 4 4"></path></symbol>
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"></rect><rect x="14" y="3" width="7" height="7" rx="2"></rect><rect x="3" y="14" width="7" height="7" rx="2"></rect><rect x="14" y="14" width="7" height="7" rx="2"></rect></symbol>
+<symbol id="i-clip" viewBox="0 0 24 24"><rect x="6" y="5" width="14" height="16" rx="2"></rect><rect x="9" y="3" width="8" height="4" rx="1" fill="currentColor" stroke="none"></rect><path d="M3 7v12a5 5 0 0 0 5 5M10 11h6m-6 4h6"></path></symbol>
+<symbol id="i-setting" viewBox="0 0 24 24"><path d="M4 7h16M4 17h16"></path><circle cx="9" cy="7" r="3" fill="currentColor"></circle><circle cx="16" cy="17" r="3" fill="currentColor"></circle></symbol>
+<symbol id="i-laptop" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="12" rx="2"></rect><path d="m5 15-3 4h20l-3-4M9 19v1h6v-1"></path></symbol>
+<symbol id="i-pc" viewBox="0 0 24 24"><rect x="2" y="4" width="14" height="11" rx="2"></rect><path d="M6 20h6m-3-5v5"></path><rect x="19" y="3" width="3" height="17" rx="1"></rect></symbol>
+<symbol id="i-wifi" viewBox="0 0 24 24"><path d="M3 8a15 15 0 0 1 18 0M6 12a10 10 0 0 1 12 0m-9 4a5 5 0 0 1 6 0"></path><circle cx="12" cy="20" r="1" fill="currentColor"></circle></symbol>
+<symbol id="i-lan" viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="11" rx="2"></rect><path d="M9 3v4m3-4v4m3-4v4m-3 7v5H4m8 0h8M4 17v4m16-4v4"></path></symbol>
+<symbol id="i-key" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="3"></rect><path d="M6 9h1m4 0h1m4 0h1M6 12h1m4 0h1m4 0h1m-9 4h8"></path></symbol>
+<symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h5l3 3h6a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Zm0 2h18"></path></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"></path></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"></path><path d="m8 12 3 3 5-6"></path></symbol>
+</defs></svg>
+<div class="preview">
+ <div class="preview-top"><div class="preview-name">SWITCHDESK / 交互概念 04</div><div class="demo-label">设计预览 · 连接、切换和文件均为演示</div></div>
+ <div class="window">
+  <div class="titlebar"><div class="traffic" aria-hidden="true"><i></i><i></i><i></i></div><div class="titlebar-title">双栖 · SwitchDesk</div><div class="titlebar-note">MAC + WINDOWS</div></div>
+  <div class="shell">
+   <aside class="sidebar">
+    <div class="brand"><div class="mark"><svg><use href="#i-swap"></use></svg></div><div><div class="brand-title">双栖</div><div class="brand-sub">SWITCHDESK</div></div></div>
+    <div class="nav-caption">我的工作空间</div>
+    <nav class="nav" aria-label="主导航">
+     <button class="active" data-view="control" aria-current="page"><svg><use href="#i-grid"></use></svg>控制台</button>
+     <button data-view="clipboard" class=""><svg><use href="#i-clip"></use></svg>剪贴板与文件<span class="nav-count">1</span></button>
+     <button data-view="settings" class=""><svg><use href="#i-setting"></use></svg>设置</button>
+    </nav>
+    <div class="sidebar-bottom"><div class="local"><svg style="width:14px;height:14px"><use href="#i-shield"></use></svg>仅在已配对设备间共享</div><p>有线与 Wi-Fi 可以互通<br>本地连接，无需云端账号</p></div>
+   </aside>
+   <main class="main">
+    <section class="view" id="view-control">
+     <header class="heading"><div><p class="eyebrow">YOUR CONNECTED DESK</p><h1>两台电脑，一个工作空间。</h1></div><div class="online"><span class="dot"></span>2 台设备在线</div></header>
+     <div class="hero">
+      <div class="hero-copy"><div class="hero-label"><span class="dot"></span><span id="hero-label">当前控制</span></div><h2 id="target-name">MacBook</h2><p class="hero-desc" id="target-desc">显示器画面与键鼠控制已同步</p><button class="primary" id="switch-button"><svg><use href="#i-swap"></use></svg><span>切换到 Windows</span></button><div class="shortcut"><span>或按</span><kbd>Ctrl</kbd><span>+</span><kbd>Alt / ⌥</kbd><span>+</span><kbd>Space</kbd></div></div>
+      <div class="hero-art">
+ <div class="halo" aria-hidden="true"></div>
+ <div class="preview-device-line"><span>切换前预览 · <strong id="preview-device">Windows</strong></span><span class="preview-state-label"><span class="dot" style="background: rgb(68, 163, 140);"></span><span id="preview-state-text">实时预览 · 演示</span></span></div>
+ <div class="monitor"><div class="monitor-frame"><div class="monitor-screen" id="monitor-screen"><svg class="desktop-svg" viewBox="0 0 960 540" role="img" aria-label="演示桌面画面，非真实屏幕采集">
+<rect class="desktop-wallpaper" width="960" height="540"></rect>
+<path class="desktop-wave" d="M0 360C150 180 330 370 540 185S770 20 960 50V540H0Z" opacity=".6"></path>
+<path class="desktop-wave2" d="M0 470C210 245 295 485 555 335S780 250 960 320V540H0Z" opacity=".8"></path>
+<rect width="960" height="25" fill="#f7fbff" opacity=".6"></rect>
+<g fill="#42565e" font-size="11"><text class="desktop-menu" x="22" y="17">资源管理器</text><text x="100" y="17">文件</text><text x="142" y="17">编辑</text><text x="185" y="17">显示</text><text x="870" y="17">10:24</text></g>
+<rect x="70" y="87" width="532" height="359" rx="13" fill="#42635b" opacity=".12"></rect>
+<rect x="70" y="79" width="532" height="359" rx="13" fill="#fafbfc"></rect>
+<path d="M83 79h506a13 13 0 0 1 13 13v34H70V92a13 13 0 0 1 13-13Z" fill="#eff2f5"></path>
+<circle cx="88" cy="100" r="5" fill="#f67d77"></circle><circle cx="104" cy="100" r="5" fill="#edc575"></circle><circle cx="120" cy="100" r="5" fill="#93bb97"></circle>
+<text x="327" y="106" font-size="13" text-anchor="middle" fill="#64717e">项目资料</text>
+<path d="M70 126h128v312H83a13 13 0 0 1-13-13Z" fill="#f0f3f6"></path>
+<g fill="#91a0ac" font-size="10"><text x="91" y="153">个人收藏</text><text x="98" y="182">最近使用</text><text x="98" y="208">桌面</text><text x="98" y="234">文稿</text><text x="98" y="260">下载</text><text x="91" y="308">位置</text></g>
+<rect x="213" y="141" width="374" height="28" rx="5" fill="#eceafa"></rect><g fill="#68788a" font-size="12"><text x="244" y="160">README.md</text><text x="244" y="199">设计稿</text><text x="244" y="238">接口文档.pdf</text><text x="244" y="277">会议记录.txt</text></g>
+<g fill="#b8c7dc"><rect x="224" y="148" width="10" height="14" rx="2"></rect><rect x="224" y="226" width="10" height="14" rx="2"></rect><rect x="224" y="265" width="10" height="14" rx="2"></rect></g>
+<path d="M221 186h9l3 3h8v13h-20Z" fill="#bcd9e7"></path>
+<g fill="#a5afb8" font-size="10"><text x="534" y="160">2 KB</text><text x="534" y="199">文件夹</text><text x="534" y="238">1.8 MB</text><text x="534" y="277">4 KB</text></g>
+<rect x="575" y="170" width="307" height="269" rx="11" fill="#49675d" opacity=".12"></rect>
+<rect x="575" y="163" width="307" height="269" rx="11" fill="#fffdf7"></rect>
+<path d="M586 163h285a11 11 0 0 1 11 11v31H575v-31a11 11 0 0 1 11-11Z" fill="#f3eddf"></path>
+<g fill="#9e9277" font-size="11"><text x="593" y="190">工作笔记</text><text x="598" y="237" font-size="17" fill="#615a4b">今天的待办</text><text x="618" y="276">整理项目资料</text><text x="618" y="310">检查设计稿</text><text x="618" y="344">同步会议记录</text></g>
+<g stroke="#c7bb9e" stroke-width="1.5" fill="none"><rect x="598" y="266" width="11" height="11" rx="2"></rect><rect x="598" y="300" width="11" height="11" rx="2"></rect><rect x="598" y="334" width="11" height="11" rx="2"></rect></g>
+<path d="m600 272 3 3 6-7" stroke="#a5aa76" stroke-width="1.7" fill="none"></path>
+<rect x="340" y="486" width="280" height="38" rx="11" fill="#fff" opacity=".5"></rect>
+<g><rect x="354" y="495" width="22" height="22" rx="5" fill="#92b5dd"></rect><rect x="388" y="495" width="22" height="22" rx="5" fill="#eee8cb"></rect><rect x="422" y="495" width="22" height="22" rx="5" fill="#9dbcb6"></rect><rect x="456" y="495" width="22" height="22" rx="5" fill="#e4acac"></rect><rect x="490" y="495" width="22" height="22" rx="5" fill="#b6aedc"></rect><rect x="524" y="495" width="22" height="22" rx="5" fill="#e7d2ab"></rect><rect x="558" y="495" width="22" height="22" rx="5" fill="#a2bbcb"></rect><rect x="592" y="495" width="14" height="22" rx="4" fill="#d6d9e2"></rect></g>
+<path class="preview-cursor" d="m720 350 0 26 7-8 6 11 5-3-6-11 11-1Z" fill="#fdfefe" stroke="#53636e" stroke-width="1.5"></path>
+</svg><span class="preview-watermark">示意画面 · 非真实采集</span><div class="preview-unavailable" id="preview-unavailable" hidden=""><strong id="preview-empty-title"></strong><small id="preview-empty-detail"></small></div></div></div><div class="monitor-neck"></div><div class="monitor-base"></div></div>
+ <div class="preview-actions"><span>先看桌面，再切换</span><div class="buttons"><button class="preview-action" id="pause-preview">暂停预览</button><button class="preview-action" id="zoom-preview">放大查看</button></div></div>
+ <div class="monitor-caption">AOC 27G2 · 视频接口待实机校准</div>
+</div>
+     </div>
+     <div class="connection-alert" id="connection-alert" role="status" hidden=""><div><strong>暂时无法自动切屏</strong><p>键鼠和剪贴板仍可共享。检查连接后重试即可。</p></div><button class="secondary" id="open-connection-details">查看原因</button></div>
+     <div class="recovery" id="switch-recovery" hidden=""><strong>切换尚未确认</strong><p>键鼠已收回来源电脑。请用显示器按键选择需要的输入，或重试切换。</p><button class="secondary" id="retry-switch">重试切换演示</button></div>
+     <div class="section-label"><span>我的设备</span><small>同一局域网 · 双向连接</small></div>
+     <div class="device-grid">
+      <div class="device active-target" id="device-mac"><div class="device-icon"><svg><use href="#i-laptop"></use></svg></div><div><strong>MacBook</strong><small><svg><use href="#i-wifi"></use></svg>Wi-Fi · 已连接</small></div><span class="device-badge" id="badge-mac">正在控制</span></div>
+      <div class="device" id="device-windows"><div class="device-icon"><svg><use href="#i-pc"></use></svg></div><div><strong>Windows</strong><small><svg><use href="#i-lan"></use></svg>以太网 · 已连接</small></div><span class="device-badge idle" id="badge-windows">待切换</span></div>
+     </div>
+     <div class="source-panel"><div class="panel-heading"><div class="panel-title"><svg><use href="#i-key"></use></svg>键鼠来源</div><span class="small-note">切换屏幕时，来源保持不变</span></div><div class="sources" role="group" aria-label="选择键鼠来源"><button class="source" data-source="mac" aria-pressed="false"><span class="radio"></span><span><strong>MacBook</strong><small>内置键盘与触控板</small></span></button><button class="source" data-source="windows" aria-pressed="true"><span class="radio"></span><span><strong>Windows</strong><small>USB 接收器键鼠</small></span></button></div><p class="source-hint" id="source-hint">正在使用 Windows 的键鼠 · 来源设备需保持唤醒</p></div>
+     <div class="clipboard-panel"><div class="clipboard-top"><div><div class="panel-title"><svg><use href="#i-clip"></use></svg>共享剪贴板</div><p class="clipboard-status">文字、图片、文件和文件夹 · 双向共享</p></div><button class="toggle clipboard-toggle" role="switch" aria-label="共享剪贴板" aria-checked="true"></button></div><div class="transfer"><div class="folder-icon"><svg><use href="#i-folder"></use></svg></div><div class="transfer-content"><div class="transfer-row"><span>项目资料 <span style="color:#a7acb6;font-size:9px">· 12 个文件</span></span><span class="transfer-percent" style="color:#9585c5;font-size:10px">62%</span></div><div class="transfer-meta transfer-state">Windows → MacBook · 128 MB / 206 MB</div><div class="progress"><span></span></div></div><button class="icon-button cancel-transfer" aria-label="取消演示传输"><svg><use href="#i-close"></use></svg></button></div></div>
+     <div class="footnote"><span>目标：按键后 3 秒内可操作 · 尚待实机验证</span><a href="#settings" data-go="settings">连接与快捷键设置 ↗</a></div>
+    </section>
+    <section class="view" id="view-clipboard" hidden="">
+     <header class="heading"><div><p class="eyebrow">COPY HERE. PASTE THERE.</p><h1>复制一次，两边可用。</h1></div><div class="online"><span class="dot"></span>双向共享</div></header>
+     <div class="card"><div class="clipboard-top"><div><h2>共享剪贴板</h2><p class="description">无论使用哪台的键盘，都可以在另一台粘贴。</p></div><button class="toggle clipboard-toggle" role="switch" aria-label="共享剪贴板" aria-checked="true"></button></div><div class="format-list"><span>文字与链接</span><span>图片与截图</span><span>文件</span><span>文件夹</span></div><div class="empty-clipboard"><span style="font-size:10px;color:#9ba1ae">当前剪贴板 · 来自 Windows · 示例内容</span><code>周一的设计评审调整为下午三点。</code></div><p class="clipboard-caption clipboard-status">文字和图片就绪后可直接粘贴；文件和文件夹在粘贴时开始传输。</p></div>
+     <div class="card"><h2>文件传输</h2><p class="description">传输期间，仍可继续切换电脑和使用键鼠。</p><div class="transfer-large"><div class="transfer"><div class="folder-icon"><svg><use href="#i-folder"></use></svg></div><div class="transfer-content"><div class="transfer-row"><strong style="font-weight:500">项目资料</strong><span class="transfer-percent" style="color:#9585c5">62%</span></div><div class="transfer-meta transfer-state">Windows → MacBook · 128 MB / 206 MB</div><div class="progress"><span></span></div></div><button class="icon-button cancel-transfer" aria-label="取消演示传输"><svg><use href="#i-close"></use></svg></button></div></div><div class="settings-row"><div><strong>遇到同名文件时</strong><small>在替换文件前，让你决定如何处理</small></div><span class="pill">每次询问</span></div><div class="settings-row"><div><strong>传输中断</strong><small>保留失败状态，并提供重试入口</small></div><button class="secondary" id="failure-example">查看失败示例</button></div></div>
+     <div class="info">不需要先发送到聊天软件。像平时一样，在来源电脑复制，在目标电脑的文件夹里粘贴即可。此页面仅演示交互，不会读取你的剪贴板或文件。</div>
+    </section>
+    <section class="view" id="view-settings" hidden="">
+     <header class="heading"><div><p class="eyebrow">MAKE IT YOURS</p><h1>按照你的习惯切换。</h1></div><span class="pill">概念设置</span></header>
+     <div class="card"><h2>切换快捷键</h2><p class="description">在任意一台电脑上，切换到另一台的画面与控制。</p><div class="settings-row"><div><strong>切换 Mac / Windows</strong><small>Mac 上的 Alt 对应 Option（⌥）</small></div><div class="key-display" id="configured-keys"><kbd>Ctrl</kbd><kbd>Alt / ⌥</kbd><kbd>Space</kbd></div><button class="secondary" id="edit-shortcut">修改</button></div><div class="settings-row"><div><strong>紧急收回键鼠</strong><small>在键鼠来源电脑上触发，取回本机控制</small></div><div class="key-display"><kbd>Ctrl</kbd><kbd>Alt / ⌥</kbd><kbd>Esc</kbd></div></div></div>
+     <div class="card"><h2>连接</h2><p class="description">自动在后台识别和检查连接，仅在需要你处理时提醒。</p><details class="connection-details" id="connection-details"><summary>连接详情与排查</summary><div class="settings-row"><div><strong>AOC 27G2</strong><small>Mac · HDMI 1 / Windows · HDMI 2（示例）</small></div><span class="connection-status" id="connection-detail-status">连接正常 · 示例</span></div><p id="connection-detail-message">接线方式自动适配，无需手动选择。支持 HDMI 直连、USB-C 转 HDMI 和 USB-C 转 DP。</p><div class="detail-actions"><span id="connection-check-status">后台检查正常 · 示例</span><button class="secondary" id="retry-connection">重新检查演示</button></div></details></div>
+     <div class="card"><h2>另一台电脑的桌面预览</h2><p class="description">当前用 Mac 时预览 Windows；当前用 Windows 时预览 Mac。</p><div class="settings-row"><div><strong>开启桌面预览</strong><small>仅在预览窗口可见时采集和传输</small></div><button class="toggle" id="enable-preview" role="switch" aria-label="开启桌面预览" aria-checked="true"></button></div><div class="settings-row"><div><strong>预览方式</strong><small>低帧率缩略图，优先保障键鼠响应</small></div><span class="pill">5 帧 / 秒 · 设计目标</span></div><div class="settings-row"><div><strong>画面暂不可用</strong><small>权限、锁屏或显示器连接异常时明确提示</small></div><button class="secondary" id="preview-failure">查看不可用示例</button></div></div>
+     <div class="card"><h2>日常使用</h2><div class="settings-row"><div><strong>登录后自动启动</strong><small>在菜单栏或系统托盘中保持运行</small></div><button class="toggle setting-toggle" role="switch" aria-label="登录后自动启动" aria-checked="true"></button></div><div class="settings-row"><div><strong>切换完成提示</strong><small>显示短暂提示，确认当前控制的电脑</small></div><button class="toggle setting-toggle" role="switch" aria-label="切换完成提示" aria-checked="true"></button></div></div>
+    </section>
+   </main>
+  </div>
+ </div>
+ <div class="preview-bottom"><span><strong>可以试试：</strong>切换电脑、选择键鼠来源、预览另一台桌面。</span><span>设计预览 V0.4 · 连接检测默认在后台</span></div>
+ <details class="demo-controls"><summary>原型演示工具 · 查看异常状态</summary><div class="scenario-toolbar" role="group" aria-label="选择连接演示场景"><button data-connection="ready" aria-pressed="true">正常连接</button><button data-connection="limited" aria-pressed="false">连接异常</button><button data-connection="timeout" aria-pressed="false">切换超时</button></div><p>仅用于审阅原型，正式软件不显示这些演示按钮。</p></details>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite">演示：已切换到 MacBook，键鼠来源保持不变</div>
+<dialog id="shortcut-dialog"><h2>设置切换快捷键</h2><p>点击下方输入框，按下你想使用的组合键。只修改此预览。</p><input id="shortcut-input" aria-label="录制快捷键" value="Ctrl + Alt + Space" readonly=""><div class="dialog-actions"><button class="secondary" id="shortcut-cancel">取消</button><button class="primary" id="shortcut-save">保存预览设置</button></div></dialog>
+<dialog id="info-dialog"><h2 id="info-title">显示器切换测试</h2><p id="info-text" style="line-height:1.9"></p><div class="dialog-actions"><button class="primary" id="info-close">知道了</button></div></dialog>
+<dialog id="preview-dialog" class="preview-dialog"><div class="preview-dialog-top"><div><h2 id="preview-dialog-title">Windows · 桌面预览</h2><p>切换前查看另一台电脑的桌面</p></div><button class="icon-button" id="close-preview-dialog" aria-label="关闭放大预览"><svg><use href="#i-close"></use></svg></button></div><div class="preview-enlarged" id="preview-enlarged"><svg class="desktop-svg" viewBox="0 0 960 540" role="img" aria-label="演示桌面画面，非真实屏幕采集">
+<rect class="desktop-wallpaper" width="960" height="540"></rect>
+<path class="desktop-wave" d="M0 360C150 180 330 370 540 185S770 20 960 50V540H0Z" opacity=".6"></path>
+<path class="desktop-wave2" d="M0 470C210 245 295 485 555 335S780 250 960 320V540H0Z" opacity=".8"></path>
+<rect width="960" height="25" fill="#f7fbff" opacity=".6"></rect>
+<g fill="#42565e" font-size="11"><text class="desktop-menu" x="22" y="17">资源管理器</text><text x="100" y="17">文件</text><text x="142" y="17">编辑</text><text x="185" y="17">显示</text><text x="870" y="17">10:24</text></g>
+<rect x="70" y="87" width="532" height="359" rx="13" fill="#42635b" opacity=".12"></rect>
+<rect x="70" y="79" width="532" height="359" rx="13" fill="#fafbfc"></rect>
+<path d="M83 79h506a13 13 0 0 1 13 13v34H70V92a13 13 0 0 1 13-13Z" fill="#eff2f5"></path>
+<circle cx="88" cy="100" r="5" fill="#f67d77"></circle><circle cx="104" cy="100" r="5" fill="#edc575"></circle><circle cx="120" cy="100" r="5" fill="#93bb97"></circle>
+<text x="327" y="106" font-size="13" text-anchor="middle" fill="#64717e">项目资料</text>
+<path d="M70 126h128v312H83a13 13 0 0 1-13-13Z" fill="#f0f3f6"></path>
+<g fill="#91a0ac" font-size="10"><text x="91" y="153">个人收藏</text><text x="98" y="182">最近使用</text><text x="98" y="208">桌面</text><text x="98" y="234">文稿</text><text x="98" y="260">下载</text><text x="91" y="308">位置</text></g>
+<rect x="213" y="141" width="374" height="28" rx="5" fill="#eceafa"></rect><g fill="#68788a" font-size="12"><text x="244" y="160">README.md</text><text x="244" y="199">设计稿</text><text x="244" y="238">接口文档.pdf</text><text x="244" y="277">会议记录.txt</text></g>
+<g fill="#b8c7dc"><rect x="224" y="148" width="10" height="14" rx="2"></rect><rect x="224" y="226" width="10" height="14" rx="2"></rect><rect x="224" y="265" width="10" height="14" rx="2"></rect></g>
+<path d="M221 186h9l3 3h8v13h-20Z" fill="#bcd9e7"></path>
+<g fill="#a5afb8" font-size="10"><text x="534" y="160">2 KB</text><text x="534" y="199">文件夹</text><text x="534" y="238">1.8 MB</text><text x="534" y="277">4 KB</text></g>
+<rect x="575" y="170" width="307" height="269" rx="11" fill="#49675d" opacity=".12"></rect>
+<rect x="575" y="163" width="307" height="269" rx="11" fill="#fffdf7"></rect>
+<path d="M586 163h285a11 11 0 0 1 11 11v31H575v-31a11 11 0 0 1 11-11Z" fill="#f3eddf"></path>
+<g fill="#9e9277" font-size="11"><text x="593" y="190">工作笔记</text><text x="598" y="237" font-size="17" fill="#615a4b">今天的待办</text><text x="618" y="276">整理项目资料</text><text x="618" y="310">检查设计稿</text><text x="618" y="344">同步会议记录</text></g>
+<g stroke="#c7bb9e" stroke-width="1.5" fill="none"><rect x="598" y="266" width="11" height="11" rx="2"></rect><rect x="598" y="300" width="11" height="11" rx="2"></rect><rect x="598" y="334" width="11" height="11" rx="2"></rect></g>
+<path d="m600 272 3 3 6-7" stroke="#a5aa76" stroke-width="1.7" fill="none"></path>
+<rect x="340" y="486" width="280" height="38" rx="11" fill="#fff" opacity=".5"></rect>
+<g><rect x="354" y="495" width="22" height="22" rx="5" fill="#92b5dd"></rect><rect x="388" y="495" width="22" height="22" rx="5" fill="#eee8cb"></rect><rect x="422" y="495" width="22" height="22" rx="5" fill="#9dbcb6"></rect><rect x="456" y="495" width="22" height="22" rx="5" fill="#e4acac"></rect><rect x="490" y="495" width="22" height="22" rx="5" fill="#b6aedc"></rect><rect x="524" y="495" width="22" height="22" rx="5" fill="#e7d2ab"></rect><rect x="558" y="495" width="22" height="22" rx="5" fill="#a2bbcb"></rect><rect x="592" y="495" width="14" height="22" rx="4" fill="#d6d9e2"></rect></g>
+<path class="preview-cursor" d="m720 350 0 26 7-8 6 11 5-3-6-11 11-1Z" fill="#fdfefe" stroke="#53636e" stroke-width="1.5"></path>
+</svg><span class="preview-watermark">设计示意 · 非真实电脑画面</span><div class="preview-unavailable" id="preview-dialog-unavailable" hidden=""><strong id="preview-dialog-empty-title"></strong><small id="preview-dialog-empty-detail"></small></div></div><div class="preview-dialog-foot"><span>用于查看 · 操作电脑请使用主界面的切换按钮</span><span>未读取屏幕、剪贴板或文件</span></div></dialog>
+<script>
+// This is a design-only prototype. It has no hardware, clipboard, file, or network access.
+let activeTarget='windows',inputSource='windows',busy=false,clipboardEnabled=true,transferMode='running',switchUnconfirmed=false;
+let toastTimer,shortcut={ctrl:true,alt:true,shift:false,meta:false,code:'Space',label:'Space'},draftShortcut={...shortcut};
+const $=id=>document.getElementById(id);
+function toast(message){clearTimeout(toastTimer);$('toast').textContent=message;$('toast').classList.add('show');toastTimer=setTimeout(()=>$('toast').classList.remove('show'),3400)}
+function showView(view){document.querySelectorAll('.view').forEach(x=>x.hidden=x.id!=='view-'+view);document.querySelectorAll('[data-view]').forEach(x=>{const active=x.dataset.view===view;x.classList.toggle('active',active);if(active)x.setAttribute('aria-current','page');else x.removeAttribute('aria-current')})}
+document.querySelectorAll('[data-view]').forEach(x=>x.onclick=()=>showView(x.dataset.view));document.querySelectorAll('[data-go]').forEach(x=>x.onclick=e=>{e.preventDefault();showView(x.dataset.go)});
+function updateTarget(){const isMac=activeTarget==='mac',name=isMac?'MacBook':'Windows';$('target-name').textContent=name;renderDesktopPreview();$('switch-button').querySelector('span').textContent='切换到 '+(isMac?'Windows':'Mac');['mac','windows'].forEach(key=>{$('device-'+key).classList.toggle('active-target',key===activeTarget);$('badge-'+key).textContent=key===activeTarget?'正在控制':'待切换';$('badge-'+key).classList.toggle('idle',key!==activeTarget)})}
+function switchTarget(){
+ if(busy)return;
+ if(connectionScenario==='limited'){showView('control');$('connection-alert').hidden=false;toast('暂时无法自动切屏，可查看原因后重试');return}
+ busy=true;$('switch-button').disabled=true;$('switch-recovery').hidden=true;
+ $('hero-label').textContent='切换演示';$('target-desc').textContent='检查目标电脑 → 切换画面 → 同步键鼠…';
+ setTimeout(()=>{
+  busy=false;$('switch-button').disabled=false;
+  if(connectionScenario==='timeout'){
+   switchUnconfirmed=true;$('hero-label').textContent='显示器状态待确认';$('target-name').textContent='切换未完成';
+   $('target-desc').textContent='键鼠已收回至 '+(inputSource==='mac'?'MacBook':'Windows');$('switch-recovery').hidden=false;
+   ['mac','windows'].forEach(key=>{$('device-'+key).classList.remove('active-target');$('badge-'+key).textContent='画面待确认';$('badge-'+key).classList.add('idle')});
+   renderDesktopPreview();toast('超时演示：未确认画面切换，不显示成功');return;
+  }
+  switchUnconfirmed=false;activeTarget=activeTarget==='windows'?'mac':'windows';updateTarget();
+  $('hero-label').textContent='当前控制';$('target-desc').textContent='显示器画面与键鼠控制已同步';
+  toast('演示：已切换到 '+(activeTarget==='mac'?'MacBook':'Windows')+'，键鼠来源保持不变');
+ },550);
+}
+$('switch-button').onclick=switchTarget;
+document.querySelectorAll('[data-source]').forEach(x=>x.onclick=()=>{inputSource=x.dataset.source;document.querySelectorAll('[data-source]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.source===inputSource)));$('source-hint').textContent='正在使用 '+(inputSource==='mac'?'MacBook 的键盘与触控板':'Windows 的键鼠')+' · 来源设备需保持唤醒';toast('演示：键鼠来源已设为 '+(inputSource==='mac'?'MacBook':'Windows')+'，当前画面不变')});
+function renderTransfer(){const text=transferMode==='running'?'Windows → MacBook · 128 MB / 206 MB':transferMode==='failed'?'传输中断 · 目标设备断开连接（演示）':'已取消 · 未完成的文件不会显示为成功';document.querySelectorAll('.transfer-state').forEach(x=>x.textContent=text);document.querySelectorAll('.transfer-percent').forEach(x=>x.textContent=transferMode==='running'?'62%':transferMode==='failed'?'失败':'已取消');document.querySelectorAll('.progress span').forEach(x=>{x.style.width=transferMode==='running'?'62%':'0%'});document.querySelectorAll('.cancel-transfer').forEach(x=>{x.innerHTML=transferMode==='running'?'<svg><use href="#i-close"/></svg>':'重试';x.setAttribute('aria-label',transferMode==='running'?'取消演示传输':'重试演示传输')});document.querySelector('.nav-count').textContent=transferMode==='running'?'1':transferMode==='failed'?'!':'0'}
+document.querySelectorAll('.cancel-transfer').forEach(x=>x.onclick=()=>{if(transferMode==='running'){transferMode='cancelled';toast('演示：已取消文件传输')}else if(!clipboardEnabled){toast('请先在预览中开启共享剪贴板')}else{transferMode='running';toast('演示：重新开始传输')}renderTransfer()});
+document.querySelectorAll('.clipboard-toggle').forEach(x=>x.onclick=()=>{clipboardEnabled=!clipboardEnabled;document.querySelectorAll('.clipboard-toggle').forEach(b=>b.setAttribute('aria-checked',String(clipboardEnabled)));document.querySelectorAll('.clipboard-status').forEach(b=>b.textContent=clipboardEnabled?'文字、图片、文件和文件夹 · 双向共享':'共享已关闭 · 不再同步新内容');if(!clipboardEnabled&&transferMode==='running'){transferMode='cancelled';renderTransfer()}toast(clipboardEnabled?'演示：已开启双向剪贴板':'演示：已关闭共享，并取消当前传输')});
+document.querySelectorAll('.setting-toggle').forEach(x=>x.onclick=()=>{x.setAttribute('aria-checked',String(x.getAttribute('aria-checked')!=='true'));toast('仅更新此设计预览，未修改系统设置')});
+$('failure-example').onclick=()=>{transferMode='failed';renderTransfer();toast('正在展示传输失败状态，可点击“重试”')};
+function showInfo(title,text){$('info-title').textContent=title;$('info-text').textContent=text;$('info-dialog').showModal()}
+$('info-close').onclick=()=>$('info-dialog').close();
+function shortcutLabels(s){return[s.ctrl?'Ctrl':null,s.alt?'Alt / ⌥':null,s.shift?'Shift':null,s.meta?'Meta / ⌘':null,s.label].filter(Boolean)}
+$('edit-shortcut').onclick=()=>{draftShortcut={...shortcut};$('shortcut-dialog').showModal();$('shortcut-input').value=shortcutLabels(draftShortcut).join(' + ');$('shortcut-input').focus()};
+$('shortcut-input').onkeydown=e=>{if(e.key==='Tab'||e.key==='Escape')return;e.preventDefault();if(['Control','Alt','Shift','Meta'].includes(e.key))return;if(!e.ctrlKey&&!e.altKey&&!e.metaKey){toast('请至少使用 Ctrl、Alt 或 Command 中的一个修饰键');return}draftShortcut={ctrl:e.ctrlKey,alt:e.altKey,shift:e.shiftKey,meta:e.metaKey,code:e.code,label:e.code==='Space'?'Space':e.key.toUpperCase()};$('shortcut-input').value=shortcutLabels(draftShortcut).join(' + ')};
+$('shortcut-cancel').onclick=()=>$('shortcut-dialog').close();$('shortcut-save').onclick=()=>{shortcut={...draftShortcut};const keys=shortcutLabels(shortcut);$('configured-keys').replaceChildren(...keys.map(k=>{const n=document.createElement('kbd');n.textContent=k;return n}));const hint=document.querySelector('.shortcut');hint.replaceChildren(document.createTextNode('或按 '),...keys.map(k=>{const n=document.createElement('kbd');n.textContent=k;return n}));$('shortcut-dialog').close();toast('预览快捷键已保存；在页面获得焦点时可尝试')};
+document.addEventListener('keydown',e=>{if(document.querySelector('dialog[open]'))return;if(e.ctrlKey&&e.altKey&&e.code==='Escape'){e.preventDefault();$('target-desc').textContent='键鼠已收回至 '+(inputSource==='mac'?'MacBook':'Windows')+'，显示器画面保持不变';toast('演示：紧急收回只恢复来源电脑的键鼠控制');return}if(e.code===shortcut.code&&e.ctrlKey===shortcut.ctrl&&e.altKey===shortcut.alt&&e.shiftKey===shortcut.shift&&e.metaKey===shortcut.meta){e.preventDefault();switchTarget()}});
+
+let desktopPreviewEnabled=true,desktopPreviewPaused=false,desktopPreviewUnavailable=false;
+function renderDesktopPreview(){
+ const mac=activeTarget==='windows',name=mac?'MacBook':'Windows';
+ const title=switchUnconfirmed?'切换状态待确认':!desktopPreviewEnabled?'桌面预览已关闭':desktopPreviewUnavailable?'画面暂不可用':desktopPreviewPaused?'预览已暂停':'';
+ const detail=switchUnconfirmed?'确认显示器输入后再恢复预览':!desktopPreviewEnabled?'可在设置中开启':desktopPreviewUnavailable?'请检查屏幕授权和显示器连接':desktopPreviewPaused?'继续预览后更新画面':'';
+ $('preview-device').textContent=name;
+ $('monitor-screen').classList.toggle('mac',mac);$('preview-enlarged').classList.toggle('mac',mac);
+ document.querySelectorAll('.desktop-menu').forEach(x=>x.textContent=mac?'Finder':'资源管理器');
+ $('preview-state-text').textContent=title||'实时预览 · 演示';
+ document.querySelector('.preview-state-label .dot').style.background=title?'#aaa0b4':'#44a38c';
+ $('preview-dialog-title').textContent=name+' · 桌面预览';
+ $('preview-unavailable').hidden=!title;$('preview-dialog-unavailable').hidden=!title;
+ $('preview-empty-title').textContent=title;$('preview-dialog-empty-title').textContent=title;
+ $('preview-empty-detail').textContent=detail;$('preview-dialog-empty-detail').textContent=detail;
+ $('monitor-screen').classList.toggle('preview-paused',Boolean(title));$('preview-enlarged').classList.toggle('preview-paused',Boolean(title));
+ $('pause-preview').textContent=!desktopPreviewEnabled?'开启预览':desktopPreviewUnavailable?'重试预览':desktopPreviewPaused?'继续预览':'暂停预览';
+ $('enable-preview').setAttribute('aria-checked',String(desktopPreviewEnabled));
+}
+$('pause-preview').onclick=()=>{
+ if(!desktopPreviewEnabled){desktopPreviewEnabled=true;desktopPreviewPaused=false}
+ else if(desktopPreviewUnavailable){desktopPreviewUnavailable=false;desktopPreviewPaused=false}
+ else desktopPreviewPaused=!desktopPreviewPaused;
+ renderDesktopPreview();toast('只更新演示预览状态；没有采集任何电脑画面');
+};
+$('zoom-preview').onclick=()=>{renderDesktopPreview();$('preview-dialog').showModal()};
+$('close-preview-dialog').onclick=()=>$('preview-dialog').close();
+$('enable-preview').onclick=()=>{desktopPreviewEnabled=!desktopPreviewEnabled;desktopPreviewPaused=false;renderDesktopPreview();toast('桌面预览'+(desktopPreviewEnabled?'开启':'关闭')+'（演示）')};
+$('preview-failure').onclick=()=>{desktopPreviewEnabled=true;desktopPreviewUnavailable=true;renderDesktopPreview();showView('control');toast('正在展示画面不可用状态；可点击“重试预览”')};
+let connectionScenario='ready',connectionDetecting=false;
+function renderConnection(){
+ const limited=connectionScenario==='limited',timeout=connectionScenario==='timeout';
+ document.querySelectorAll('[data-connection]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.connection===connectionScenario)));
+ $('connection-alert').hidden=!limited;
+ $('connection-detail-status').textContent=limited?'需要处理 · 示例':timeout?'切换未确认 · 示例':'连接正常 · 示例';
+ $('connection-detail-status').classList.toggle('warn',limited||timeout);
+ $('connection-detail-message').textContent=limited?'显示器控制指令未响应。请检查显示器控制设置，或更换支持控制指令的线材；也可先用显示器按键切源。':timeout?'切换未收到确认，键鼠已收回来源电脑。可重试切换，或用显示器按键选择需要的输入。':'接线方式自动适配，无需手动选择。支持 HDMI 直连、USB-C 转 HDMI 和 USB-C 转 DP。';
+ $('connection-check-status').textContent=limited?'后台检查发现异常 · 示例':timeout?'等待恢复 · 示例':'后台检查正常 · 示例';
+}
+function openConnectionDetails(){showView('settings');$('connection-details').open=true}
+$('open-connection-details').onclick=openConnectionDetails;
+document.querySelectorAll('[data-connection]').forEach(x=>x.onclick=()=>{
+ if(busy||connectionDetecting)return;
+ connectionScenario=x.dataset.connection;switchUnconfirmed=false;renderConnection();$('switch-recovery').hidden=true;updateTarget();
+ $('hero-label').textContent='当前控制';$('target-desc').textContent='显示器画面与键鼠控制已同步';
+ showView('control');window.scrollTo({top:0,behavior:'smooth'});
+ if(connectionScenario==='timeout')switchTarget();
+});
+$('retry-connection').onclick=()=>{
+ if(connectionDetecting||busy)return;
+ connectionDetecting=true;$('retry-connection').disabled=true;$('connection-check-status').textContent='正在后台检查 · 演示';
+ setTimeout(()=>{connectionDetecting=false;$('retry-connection').disabled=false;renderConnection();toast('检查演示完成，未操作真实设备')},700);
+};
+$('retry-switch').onclick=()=>{connectionScenario='ready';renderConnection();switchTarget()};
+updateTarget();renderConnection();
+
+</script>
+<script>
+(function() {
+  const WS_URL = 'ws://' + window.location.host;
+  let ws = null;
+  let eventQueue = [];
+
+  function connect() {
+    ws = new WebSocket(WS_URL);
+
+    ws.onopen = () => {
+      eventQueue.forEach(e => ws.send(JSON.stringify(e)));
+      eventQueue = [];
+    };
+
+    ws.onmessage = (msg) => {
+      const data = JSON.parse(msg.data);
+      if (data.type === 'reload') {
+        window.location.reload();
+      }
+    };
+
+    ws.onclose = () => {
+      setTimeout(connect, 1000);
+    };
+  }
+
+  function sendEvent(event) {
+    event.timestamp = Date.now();
+    if (ws && ws.readyState === WebSocket.OPEN) {
+      ws.send(JSON.stringify(event));
+    } else {
+      eventQueue.push(event);
+    }
+  }
+
+  // Capture clicks on choice elements
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest('[data-choice]');
+    if (!target) return;
+
+    sendEvent({
+      type: 'click',
+      text: target.textContent.trim(),
+      choice: target.dataset.choice,
+      id: target.id || null
+    });
+
+    // Update indicator bar (defer so toggleSelect runs first)
+    setTimeout(() => {
+      const indicator = document.getElementById('indicator-text');
+      if (!indicator) return;
+      const container = target.closest('.options') || target.closest('.cards');
+      const selected = container ? container.querySelectorAll('.selected') : [];
+      if (selected.length === 0) {
+        indicator.textContent = 'Click an option above, then return to the terminal';
+      } else if (selected.length === 1) {
+        const label = selected[0].querySelector('h3, .content h3, .card-body h3')?.textContent?.trim() || selected[0].dataset.choice;
+        indicator.innerHTML = '<span class="selected-text">' + label + ' selected</span> — return to terminal to continue';
+      } else {
+        indicator.innerHTML = '<span class="selected-text">' + selected.length + ' selected</span> — return to terminal to continue';
+      }
+    }, 0);
+  });
+
+  // Frame UI: selection tracking
+  window.selectedChoice = null;
+
+  window.toggleSelect = function(el) {
+    const container = el.closest('.options') || el.closest('.cards');
+    const multi = container && container.dataset.multiselect !== undefined;
+    if (container && !multi) {
+      container.querySelectorAll('.option, .card').forEach(o => o.classList.remove('selected'));
+    }
+    if (multi) {
+      el.classList.toggle('selected');
+    } else {
+      el.classList.add('selected');
+    }
+    window.selectedChoice = el.dataset.choice;
+  };
+
+  // Expose API for explicit use
+  window.brainstorm = {
+    send: sendEvent,
+    choice: (value, metadata = {}) => sendEvent({ type: 'choice', value, ...metadata })
+  };
+
+  connect();
+})();
+
+</script>
+
+
+
+</body><div id="codex-browser-sidebar-comments-root" style="position: fixed; inset: 0px; pointer-events: none; z-index: 2147483647;"></div></html>

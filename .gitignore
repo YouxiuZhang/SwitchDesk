@@ -1,0 +1,16 @@
+.build/
+dist/
+reports/
+.superpowers/
+.codegraph/
+.env
+.env.*
+!.env.example
+*.p12
+*.pfx
+*.key
+*.pem
+*.switchdesk
+__pycache__/
+*.py[cod]
+.DS_Store
