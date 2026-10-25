@@ -4,6 +4,8 @@ import Foundation
 
 /// Facade used by Session and the UI. Its adapters keep hooks, media and disk off the UI queue.
 final class NativeCoordinator {
+    var onWindowHandoffStatus: ((String) -> Void)?
+    private let windowHandoff = WindowHandoff()
     var sendControl: ((WireMessage) -> Void)?
     var sendMedia: ((WireMessage) -> Void)?
     var onStatus: ((String) -> Void)?
@@ -59,6 +61,8 @@ final class NativeCoordinator {
     }
 
     func start() {
+        windowHandoff.onStatus = { [weak self] text in self?.onWindowHandoffStatus?(text) }
+        windowHandoff.start()
         input.start() // Preflight only; prompts are exclusively in the explicit permission actions.
         clipboard.start()
         inputCapability = input.inputAvailable
@@ -67,6 +71,7 @@ final class NativeCoordinator {
     }
 
     func setConnected(_ connected: Bool) {
+        windowHandoff.setConnected(connected)
         self.connected = connected
         input.setConnected(connected)
         clipboard.setAvailable(connected: connected, enabled: clipboardEnabled)
@@ -75,7 +80,12 @@ final class NativeCoordinator {
         publishCapabilities()
     }
 
-    func applyState(_ state: WireMessage) { input.applyState(state) }
+    func applyState(_ state: WireMessage) {
+        input.applyState(state)
+        windowHandoff.applyState(state)
+    }
+
+    func setWindowHandoffEnabled(_ value: Bool) { windowHandoff.setEnabled(value) }
 
     func receiveControl(_ message: WireMessage) {
         switch wireString(message, "type") {
@@ -127,6 +137,7 @@ final class NativeCoordinator {
     func cancelTransfer() { transfer.cancelAll() }
     func heartbeat() { input.heartbeat() }
     func stop() {
+        windowHandoff.stop()
         connected = false
         input.stop(); clipboard.stop(); preview.stop(); transfer.cancelAll()
         publishCapabilities()

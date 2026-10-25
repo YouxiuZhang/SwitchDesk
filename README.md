@@ -2,13 +2,13 @@
 
 Mac 与 Windows 共用显示器、键鼠和剪贴板的桌面软件项目。
 
-当前源码版本 **Mac + Windows 0.2.10 桌面联动版**：更新为浅银双窗口图标，Windows 安装时默认创建桌面快捷方式。保留 TLS 配对、显示器切源、可选键鼠来源、文字/图片/文件剪贴板和另一台桌面预览。Mac 为本地临时签名，Windows 尚无发布者签名。
+当前源码版本 **Mac 0.2.11 / Windows 0.2.10**：保留扩展桌面，切到 Windows 后自动将外接屏上的普通 Mac 窗口收回笔记本，切回 Mac 时恢复未手动调整的窗口。保留浅银图标、TLS 配对、显示器切源、可选键鼠来源、共享剪贴板和桌面预览。Mac 为本地临时签名，Windows 尚无发布者签名。
 
-[安装与配对步骤](native/macos/README.zh-CN.md) · [Windows 使用说明](native/windows/desktop-assets/README.zh-CN.md) · [本版验证记录](docs/desktop-0.2.10-verification.md)
+[安装与配对步骤](native/macos/README.zh-CN.md) · [Windows 使用说明](native/windows/desktop-assets/README.zh-CN.md) · [本版验证记录](docs/desktop-0.2.11-verification.md)
 
 此仓库包含两端源码、图标、设计文档和测试；安装包、第三方构建工具、本机报告及配对信息不入库。文档中提到的 `dist/`、`.build/`、`reports/` 均为本地产物目录。
 
-Mac 包适用于 Apple 芯片、macOS 13+；Windows 包适用于 x64 Windows 10/11。两端均更新到 0.2.10，Windows 包含 0.2.9 的键鼠保持与移动合并修复。当前已授权的 Mac 运行实例未覆盖，安装新版后新图标生效。显示器检测在后台完成，首次映射与配对在设置中进行。
+Mac 包适用于 Apple 芯片、macOS 13+；Windows 包适用于 x64 Windows 10/11。此次仅更新 Mac，Windows 0.2.10 可继续使用。Mac 窗口收回默认开启，需要辅助功能权限；全屏和最小化窗口保持原状。显示器检测在后台完成，首次映射与配对在设置中进行。
 
 历史 Windows 0.1.0 切屏工具：[旧版使用说明](native/windows/app/README.zh-CN.md) · [旧版构建验证记录](docs/windows-app-verification-2026-10-17.md)
 

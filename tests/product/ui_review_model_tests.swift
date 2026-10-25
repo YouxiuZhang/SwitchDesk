@@ -8,6 +8,7 @@ final class NativeCoordinator {
     var sendControl: ((WireMessage) -> Void)?
     var sendMedia: ((WireMessage) -> Void)?
     var onStatus: ((String) -> Void)?
+    var onWindowHandoffStatus: ((String) -> Void)?
     var onCapabilities: ((Bool, Bool) -> Void)?
     var onInputReadiness: ((InputReadiness) -> Void)?
     var onSwitch: (() -> Void)?
@@ -22,6 +23,7 @@ final class NativeCoordinator {
     func receiveMedia(_ value: WireMessage) {}
     func setClipboardEnabled(_ value: Bool) {}
     func setShortcutMapping(_ value: Bool) {}
+    func setWindowHandoffEnabled(_ value: Bool) {}
     func setCaptureAllowed(_ value: Bool) {}
     func cancelTransfer() {}
     func requestInputPermissions() {}
@@ -74,6 +76,8 @@ final class DesktopSession {
         model.refreshPermissions()
         model.setClipboard(false)
         model.setShortcutMapping(false)
+        model.setWindowHandoffEnabled(false)
+        precondition(!model.windowHandoffEnabled)
         model.setPreview(false)
         model.cancelTransfer()
         model.saveInvitation()

@@ -40,6 +40,8 @@ final class DesktopModel: ObservableObject {
     @Published var previewEnabled = UserDefaults.standard.object(forKey: "previewEnabled") as? Bool ?? true
     @Published var clipboardEnabled = UserDefaults.standard.object(forKey: "clipboardEnabled") as? Bool ?? true
     @Published var shortcutMapping = UserDefaults.standard.object(forKey: "shortcutMapping") as? Bool ?? true
+    @Published var windowHandoffEnabled = UserDefaults.standard.object(forKey: "windowHandoffEnabled") as? Bool ?? true
+    @Published var windowHandoffDetail = "切到 Windows 时收回外接屏上的普通窗口；切回 Mac 时恢复未手动调整的窗口。"
     @Published var capabilityInput = false
     @Published var capabilityCapture = false
     @Published var inputReadiness = InputReadiness.unchecked
@@ -76,6 +78,7 @@ final class DesktopModel: ObservableObject {
         coordinator.sendControl = { [weak self] message in self?.session.sendControl(message) }
         coordinator.sendMedia = { [weak self] message in self?.session.sendMedia(message) }
         coordinator.onStatus = { [weak self] text in DispatchQueue.main.async { self?.nativeStatus = text } }
+        coordinator.onWindowHandoffStatus = { [weak self] text in self?.windowHandoffDetail = text }
         coordinator.onCapabilities = { [weak self] input, capture in
             DispatchQueue.main.async {
                 guard let self = self else { return }
@@ -93,6 +96,7 @@ final class DesktopModel: ObservableObject {
         }
         coordinator.setClipboardEnabled(clipboardEnabled)
         coordinator.setShortcutMapping(shortcutMapping)
+        coordinator.setWindowHandoffEnabled(windowHandoffEnabled)
         coordinator.setCaptureAllowed(previewEnabled)
         coordinator.start()
         session.start()
@@ -246,6 +250,14 @@ final class DesktopModel: ObservableObject {
         guard !isUIReview else { return }
         UserDefaults.standard.set(value, forKey: "shortcutMapping")
         coordinator.setShortcutMapping(value)
+    }
+
+    func setWindowHandoffEnabled(_ value: Bool) {
+        windowHandoffEnabled = value
+        guard !isUIReview else { return }
+        UserDefaults.standard.set(value, forKey: "windowHandoffEnabled")
+        coordinator.setWindowHandoffEnabled(value)
+        windowHandoffDetail = value ? "切到 Windows 时收回外接屏上的普通窗口；切回 Mac 时恢复未手动调整的窗口。" : "已关闭自动收回，窗口保持当前位置。"
     }
     func setPreview(_ value: Bool) {
         previewEnabled = value
@@ -807,6 +819,9 @@ struct DesktopView: View {
                     Divider()
                     settingToggle("常用编辑快捷键映射", detail: "复制、粘贴、剪切、撤销、重做与全选适配目标系统。",
                                   value: model.shortcutMapping, action: model.setShortcutMapping)
+                    Divider()
+                    settingToggle("自动收回 Mac 窗口", detail: model.windowHandoffDetail,
+                                  value: model.windowHandoffEnabled, action: model.setWindowHandoffEnabled)
                 }
             }.padding(.top, 16)
         }
